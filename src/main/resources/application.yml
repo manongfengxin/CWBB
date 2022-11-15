@@ -1,0 +1,71 @@
+server:
+  port: 81
+
+
+spring:
+  servlet:
+    # 设置文件上传大小限制
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    druid:
+      username: root
+      password: 13979505523
+      url: jdbc:mysql:///cwbb?useUnicode=true&characterEncoding=UTF-8&userSSL=false&serverTimezone=GMT%2B8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    # 使用第一个数据库
+    database: 0
+    # IP地址
+    host: localhost
+    # 端口号
+    port: 6379
+    # 超时时间
+    timeout: 10000ms
+    # 对象池配置
+    lettuce:
+      pool:
+        # 最大连接数
+        max-active: 1024
+        # 空闲最小连接数
+        min-idle: 5
+        # 最大等待时间
+        max-wait: 10000ms
+        # 空闲最大连接数
+        max-idle: 200
+
+mybatis-plus:
+  global-config:
+    db-config:
+      #      id值自增
+      id-type: auto
+  configuration:
+    #    打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+# 七牛云配置
+qiniu:
+  accessKey: njuDCTBd_BPRQJ7WJ62yzPz-neNOB2qyUdbU7Xbo
+  secretKey: AGo2QBlIOjICUZQcTXD81TpQ0ke8RaXdAGV6D-aY
+  bucket: test-lapichang
+  domainOfBucket: https://lapichang.top
+
+
+#jwt配置
+jwt:
+  # 请求头
+  tokenHeader: Authorization
+  # 签名加盐
+  secret: lapichang
+  #JWT过期时间(60*60*24*7)  7天
+  expiration: 604800
+  # token头部
+  tokenHead: "Bearer"
+
+
+# 微信小程序
+wx:
+  appid: wx9c749e42780786fd
+  secret: f4c1e777b4c70ac9c8eba389b9d56f1d
