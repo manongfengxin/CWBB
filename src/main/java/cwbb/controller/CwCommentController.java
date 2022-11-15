@@ -23,7 +23,6 @@ public class CwCommentController {
 
     /**
      * 获取某帖子的所有评论
-     * 一次修改
      * @param cyid
      * @return
      */
