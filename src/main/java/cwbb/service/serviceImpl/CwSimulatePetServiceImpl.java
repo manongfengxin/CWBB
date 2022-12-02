@@ -4,7 +4,9 @@ package cwbb.service.serviceImpl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cwbb.POJO.Dto.AddSimulatePetDto;
 import cwbb.POJO.doMain.CwSimulatePet;
+import cwbb.POJO.doMain.SimulatePetUser;
 import cwbb.dao.CwSimulatePetDao;
+import cwbb.dao.SimulatePetUserDao;
 import cwbb.service.CwSimulatePetService;
 import cwbb.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class CwSimulatePetServiceImpl extends ServiceImpl<CwSimulatePetDao, CwSi
 
     @Autowired
     private CwSimulatePetDao simulatePetDao;
+
+    @Autowired
+    private SimulatePetUserDao simulatePetUserDao;
 
 
 
@@ -59,11 +64,12 @@ public class CwSimulatePetServiceImpl extends ServiceImpl<CwSimulatePetDao, CwSi
                 100,
                 100,
                 100,
-                "健康"
+                "健健康康"
                 );
         if (simulatePetDao.insert(cwSimulatePet) == 0){
             return Result.fail("添加失败");
         }else {
+            simulatePetUserDao.addNewSimulate(addSimulatePetDto.getUid(), spid);
             return Result.success("添加成功",cwSimulatePet);
         }
     }

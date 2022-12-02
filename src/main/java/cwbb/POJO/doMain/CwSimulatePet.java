@@ -37,6 +37,6 @@ public class CwSimulatePet {
     // 健康值
     private int health;
 
-    // 状态
+    // 状态(健健康康、口干舌燥、饿肚肚、饥渴交加、生病咯、病痛折磨、大病初愈)
     private String state;
 }
