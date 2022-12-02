@@ -42,7 +42,7 @@ public class CwSearchController {
      * @return
      */
     @GetMapping("/findPetByName")
-    public Result findPetByName(@Param("petName")String petName){
+    public Result findPetByName(@RequestParam("petName")String petName){
         List<CwPet> petList = petDao.findPetByName(petName);
         if (petList == null){
             return Result.fail("未查询到相关结果");
@@ -58,7 +58,7 @@ public class CwSearchController {
      * @return
      */
     @GetMapping("/findSupplyByName")
-    public Result findSupplyByName(@Param("supplyName")String supplyName){
+    public Result findSupplyByName(@RequestParam("supplyName")String supplyName){
         List<CwSupply> supplyList = supplyDao.findSupplyByName(supplyName);
         if (supplyList == null){
             return Result.fail("未查询到相关结果");

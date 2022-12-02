@@ -92,7 +92,7 @@ public class CwCommunityController {
      * @return
      */
     @GetMapping("/findCommunityByCyid")
-    public Result findCommunityByCyid(@Param("cyid") String cyid){
+    public Result findCommunityByCyid(@RequestParam("cyid") String cyid){
         return communityService.findCommunityByCyid(cyid);
     }
 
@@ -103,7 +103,7 @@ public class CwCommunityController {
      * @return
      */
     @GetMapping("/findCommunityByLike")
-    public Result findCommunityByTitle(@Param("keyword") String keyword){
+    public Result findCommunityByTitle(@RequestParam("keyword") String keyword){
         return communityService.findCommunityByTitle(keyword);
     }
 
@@ -147,7 +147,7 @@ public class CwCommunityController {
      * @return
      */
     @PostMapping("/addRepost")
-    public Result addRepost(@Param("cyid") String cyid){
+    public Result addRepost(@RequestParam("cyid") String cyid){
         return communityService.addRepost(cyid);
     }
 }

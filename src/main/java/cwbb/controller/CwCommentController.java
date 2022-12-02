@@ -27,7 +27,7 @@ public class CwCommentController {
      * @return
      */
     @GetMapping("/findAllComment")
-    public Result findAllComment(@Param("cyid") String cyid){
+    public Result findAllComment(@RequestParam("cyid") String cyid){
         return cwCommentService.findAllComment(cyid);
     }
 

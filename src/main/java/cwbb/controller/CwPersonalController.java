@@ -7,6 +7,7 @@ import cwbb.utils.Result;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -26,7 +27,7 @@ public class CwPersonalController {
      * @return
      */
     @GetMapping("/findPersonalCommunity")
-    public Result findPersonalCommunity(@Param("uid") int uid){
+    public Result findPersonalCommunity(@RequestParam("uid") int uid){
         return personalService.findPersonalCommunity(uid);
     }
 
@@ -37,7 +38,7 @@ public class CwPersonalController {
      * @return
      */
     @GetMapping("/findAllIncense")
-    public Result findAllIncense(@Param("uid") int uid){
+    public Result findAllIncense(@RequestParam("uid") int uid){
         return personalService.findAllIncense(uid);
     }
 
@@ -48,7 +49,7 @@ public class CwPersonalController {
      * @return
      */
     @GetMapping("/findPersonalCollectionCommunity")
-    public Result findPersonalCollectionCommunity(@Param("uid") int uid){
+    public Result findPersonalCollectionCommunity(@RequestParam("uid") int uid){
         return personalService.findPersonalCollectionCommunity(uid);
     }
 
@@ -59,7 +60,7 @@ public class CwPersonalController {
      * @return
      */
     @GetMapping("/findPersonalCollectionSupply")
-    public Result findPersonalCollectionSupply(@Param("uid") int uid){
+    public Result findPersonalCollectionSupply(@RequestParam("uid") int uid){
         return personalService.findPersonalCollectionSupply(uid);
     }
 
@@ -70,7 +71,7 @@ public class CwPersonalController {
      * @return
      */
     @GetMapping("/personalCommunityTotal")
-    public Result personalCommunityTotal(@Param("uid") int uid){
+    public Result personalCommunityTotal(@RequestParam("uid") int uid){
         return personalService.personalCommunityTotal(uid);
     }
 
@@ -81,7 +82,7 @@ public class CwPersonalController {
      * @return
      */
     @GetMapping("/collectionCommunityTotal")
-    public Result collectionCommunityTotal(@Param("uid") int uid){
+    public Result collectionCommunityTotal(@RequestParam("uid") int uid){
         return personalService.collectionCommunityTotal(uid);
     }
 
@@ -92,7 +93,7 @@ public class CwPersonalController {
      * @return
      */
     @GetMapping("/collectionSupplyTotal")
-    public Result collectionSupplyTotal(@Param("uid") int uid){
+    public Result collectionSupplyTotal(@RequestParam("uid") int uid){
         return personalService.collectionSupplyTotal(uid);
     }
 }

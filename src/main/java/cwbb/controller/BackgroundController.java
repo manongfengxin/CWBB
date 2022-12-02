@@ -110,7 +110,7 @@ public class BackgroundController {
      * @return
      */
     @GetMapping("/findUserById")
-    public Result findUserById(@Param("uid") int uid) {
+    public Result findUserById(@RequestParam("uid") int uid) {
         if (uid >= 0 && userDao.selectById(uid) != null) {
             CwUser cwUser = userDao.selectById(uid);
             return Result.success("成功获取用户信息", cwUser);
@@ -194,7 +194,7 @@ public class BackgroundController {
      * @return
      */
     @GetMapping("/findPetById")
-    public Result findPetById(@Param("pid") int pid) {
+    public Result findPetById(@RequestParam("pid") int pid) {
         if (pid >= 0 && petDao.selectById(pid) != null) {
             CwPet cwPet = petDao.selectById(pid);
             return Result.success("成功获取用户信息", cwPet);
@@ -229,7 +229,7 @@ public class BackgroundController {
      * @return
      */
     @GetMapping("/getPetSort")
-    public Result getPetBySort(@Param("psid") int psid){
+    public Result getPetBySort(@RequestParam("psid") int psid){
         List<CwPet> petList = petDao.getPetBySort(psid);
         return Result.success("成功获取宠物信息",petList);
     }
@@ -308,7 +308,7 @@ public class BackgroundController {
      * @return
      */
     @GetMapping("/findShopById")
-    public Result findShopById(@Param("shid") int shid) {
+    public Result findShopById(@RequestParam("shid") int shid) {
         if (shid >= 0 && shopDao.selectById(shid) != null) {
             CwShop cwShop = shopDao.selectById(shid);
             return Result.success("成功获取用户信息", cwShop);
@@ -389,7 +389,7 @@ public class BackgroundController {
      * @return
      */
     @GetMapping("/findSupplyById")
-    public Result findSupplyById(@Param("suid") int suid) {
+    public Result findSupplyById(@RequestParam("suid") int suid) {
         if (suid >= 0 && supplyDao.selectById(suid) != null) {
             CwSupply cwSupply = supplyDao.selectById(suid);
             return Result.success("成功获取用户信息", cwSupply);
@@ -405,7 +405,7 @@ public class BackgroundController {
      * @return
      */
     @GetMapping("/findSupplyBySort")
-    public Result findSupplyBySort(@Param("susortid") int susortid){
+    public Result findSupplyBySort(@RequestParam("susortid") int susortid){
         List<CwSupply> supplyList = supplyDao.findSupplyBySort(susortid);
         return Result.success("获取宠物用品信息",supplyList);
     }
